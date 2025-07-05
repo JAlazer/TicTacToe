@@ -9,5 +9,5 @@ So, to start my journey in learning, what better place to learn than the
 BEAUTIFUL [documentation itself](https://react.dev/)! 
 
 
-[] Task 1
-[x] Task 2
+- [ ] Task 1
+- [x] Task 2
