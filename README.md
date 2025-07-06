@@ -39,4 +39,10 @@ On the Right Hand Side (RHS) is the default value of the *squares* state defined
 
 Next, the *handleClick* function is defined to take in a value *i* (the pointer to a specific **square** on the **board**), while updating the state of the **squares** array to have the *ith element* set to an 'X' (for now ofc).  
 
-Then the *props* defined within the **Square** component are used where 9 **Square** components are created (split into 3 chunks of 3 within a 'board-row' div). Each *val* is set to the respective element of the **squares** array. Meanwhile, 
+Then the *props* defined within the **Square** component are used where 9 **Square** components are created (split into 3 chunks of 3 within a 'board-row' div). Each *val* is set to the respective element of the **squares** array. Meanwhile, the *onSquareClick* prop is set to be a lambda function, which runs the *handleClick* function taking in the same number element from *val*.  
+
+> **Important note for the lambda function reasoning:** you might be thinking, "Wait, isn't the *onSquareClick* prop *supposed* to take in a function which handles what happens on click, which is what *handleClick* does?" Following this logic would mean that we would only need to pass in the *handleClick(0)* part. However, doing this, ends up with an error from the DOM console which reads as "Too many re-renders." This means, an infinite loop is being created somewhere. It turns out, passing the function directly into the prop will immediately (upon rendering of the **Square** component inside the **Board** component) *call* the function, which also updates the state of the **Board**, which causes a *Rerendering* of the same **Square** component. To avoid this, a *lambda function* (or, in JS, an *arrow function*) is passed as the prop, which essentially puts off the *calling* of the *handleClick* function until the corresponding **Square** component is actually *clicked*!  
+
+And with this, you are all caught up to speed with my process so far! Now, I shall chug my way through the rest of this Tic Tac Toe creation, WOOT WOOT!!!  
+
+## Introducing Turn Taking
