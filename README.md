@@ -46,3 +46,14 @@ Then the *props* defined within the **Square** component are used where 9 **Squa
 And with this, you are all caught up to speed with my process so far! Now, I shall chug my way through the rest of this Tic Tac Toe creation, WOOT WOOT!!!  
 
 ## Introducing Turn Taking
+
+Now, to implement the game part of Tic tac toe, the "O" player. Before, dealing with the "O" character, we must have a way to tell whether it is player X's turn or Player O's turn. To do this, we can just ask a boolean type question: "Is it player X's turn?" which we can store in a new state *isXTurn*. By default, the game will start with player X, therefore, the default value will be set to *True*.  
+
+To implement the alternating logic of turn taking, the turn changes upon the *clicking* of a **Sqaure**, therefore, we turn back to the *handleClick* function. The purpose of this function is now to decide *which* letter gets place on **Square** *i*. So, using the *boolean* state of whether it is X's turn or not, an *if-else* block is used to update the underlying array of **Sqaures**. After this update is done, **DO NOT** forget to update the boolean value of X's turn accordingly with the *setNextTurn* function.  
+
+This change only deals with creating the *alternating* part of a game, however, a new problem arises... either player can replace the other player's letter!  
+
+This is an easy fix, we simply just check *before placing the alternate letter* on the clicked **Sqaure** *if* there is a letter already placed. In which case, nothing happens, therefore the function *returns* nothing (maybe I can work on displaying a message for this later, just need to get the basics done first).  
+
+## Winner Winner Chicken Dinner!
+

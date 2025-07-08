@@ -2,13 +2,25 @@ import Square from "./Square.jsx";
 import { useState } from "react";
 
 export default function Board() {
-    const [squares, setSquare] = useState(Array(9).fill(null))
-
+    // underlying representation of the board
+    const [squares, setSquare] = useState(Array(9).fill(null)) 
+    const [isXTurn, setNextTurn] = useState(true) // turn logic state
     
+    // purpose: update the representation of the board from clicking on a Square
     function handleClick(i) {
-        const nextSqr = squares.slice()
-        nextSqr[i] = "X"
+        const nextSqr = squares.slice() // copy of the current state of Board
+        // check if there is letter already in square i
+        if (squares[i]) {
+            return console.log("Snooze ya lose bud!");
+        }
+        // alternating turn logic
+        if (isXTurn) {
+            nextSqr[i] = "X"
+        } else {
+            nextSqr[i] = "O"
+        }
         setSquare(nextSqr)
+        setNextTurn(!isXTurn)
     }
 
     return(
