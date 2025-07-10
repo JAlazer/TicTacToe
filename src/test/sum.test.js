@@ -1,4 +1,6 @@
-//import { jest } from "globals"
+// This file was just pure testing of how to get Jest to work
+// TODO: delete later
+
 import sum from "../sum"
 
 test("demo", () => {
