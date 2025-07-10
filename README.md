@@ -57,3 +57,26 @@ This is an easy fix, we simply just check *before placing the alternate letter* 
 
 ## Winner Winner Chicken Dinner!
 
+With alternating behavior being incorporated, a win condition function is to be implemented to determine who wins! Because this is a *normal* implementation of Tic Tac Toe, the win condition is *are there three squares in the same row, column, or diagonal, which are the same letter?* As soon as this condition is found to be true, our *handleClick* function will be updated to *return* a message indicating which player won!  
+
+### winnerCheck
+
+So a new helper function will be made to handle the *win condition*. This new function is *winnerCheck*, which will take in the array representation of the board, and the slot, *i*, which has just been updated with the click from the *handleClick* function.  
+
+Within *winnerCheck*, we want to check if the **Sqaure** in the given slot, *i*, creates a **Board** which satisfies the *win condition* of having the same letters in the same row, column, or diagonal. Through analyzing the *remainder* of the given *i* divided by 3, we can see, *where* in a *row* the new letter has been placed. 
+- If *i* % 3 = 0 --> *i* is placed in the left column
+- If *i* % 3 = 1 --> *i* is placed in the middle column
+- If *i* % 3 = 2 --> *i* is placed in the right column  
+
+Therefore, this value can be utilized as the *columnNumber* constant. Meanwhile, determining the *rowNumber* is as easy as taking the *floor* of dividing *i* by 3. Now,
+- if *rowNumber* = 0 --> *i* is in the top row
+- if *rowNumber* = 1 --> *i* is in the middle row
+- if *rowNumber* = 2 --> *i* is in the bottom row  
+
+Now that we have a way of locating our slot on the **Board** in this new function, we can get into checking the *relevant* row, column, and diagonal (if necessary). Starting with checking the *row*, then checking the *column*, then checking if a *diagonal* is necessary, then returning *null*.  
+
+### Incorporating the win condition
+
+As mentioned previously, this check for the win should be done upon handling a user's click, meaning the *handleClick* function has to be updated to know when this win condition has been met. This would be a perfect time to add another *state* to keep track of: *isGameOver*. This state is set to *false* by default, and is updated within the *handleClick* function, while the *handleClick* function should *only* work when the game is indeed *not* over.  
+
+The next thing to check for, is whether there has been a tie or not, which can simply be done by iterating through the array representation of the **Board** and checking that *all* values are *not* null. In the interest of keeping game logic *separate* from the rendering of the **Board**, we can add this new check within the *winnerCheck* function. So now, the *winnerCheck* function can also return the string "T" for tie.

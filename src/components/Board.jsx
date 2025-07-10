@@ -1,26 +1,41 @@
 import Square from "./Square.jsx";
+import winCheck from "../winnerCheck.js";
 import { useState } from "react";
 
 export default function Board() {
     // underlying representation of the board
     const [squares, setSquare] = useState(Array(9).fill(null)) 
     const [isXTurn, setNextTurn] = useState(true) // turn logic state
+    const [isGameOver, setGame] = useState(false) 
     
     // purpose: update the representation of the board from clicking on a Square
     function handleClick(i) {
-        const nextSqr = squares.slice() // copy of the current state of Board
-        // check if there is letter already in square i
-        if (squares[i]) {
-            return console.log("Snooze ya lose bud!");
-        }
-        // alternating turn logic
-        if (isXTurn) {
-            nextSqr[i] = "X"
+        if (!isGameOver) {
+            const nextSqr = squares.slice() // copy of the current state of Board
+            // check if there is letter already in square i
+            if (squares[i]) {
+                return console.log("Snooze ya lose bud!");
+            }
+
+            console.log(winCheck(squares, i))
+
+            // alternating turn logic
+            if (isXTurn) {
+                nextSqr[i] = "X"
+            } else {
+                nextSqr[i] = "O"
+            }
+
+            if(winCheck(nextSqr, i)) {
+                setSquare(nextSqr)
+                setGame(true)
+                return console.log("The games up, player: " + winCheck(nextSqr, i))
+            }
+            setSquare(nextSqr)
+            setNextTurn(!isXTurn)
         } else {
-            nextSqr[i] = "O"
+            return console.log(isXTurn);
         }
-        setSquare(nextSqr)
-        setNextTurn(!isXTurn)
     }
 
     return(
@@ -43,3 +58,5 @@ export default function Board() {
     </>
     )
 }
+
+ 
