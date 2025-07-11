@@ -26,10 +26,16 @@ export default function Board() {
                 nextSqr[i] = "O"
             }
 
-            if(winCheck(nextSqr, i)) {
+            // win condition check
+            let winRes = winCheck(nextSqr, i)
+            if(winRes) {
                 setSquare(nextSqr)
                 setGame(true)
-                return console.log("The games up, player: " + winCheck(nextSqr, i))
+                if (winRes !== "T") {
+                    return console.log("The games up, player: " + winCheck(nextSqr, i))
+                } else {
+                    return console.log("It's a Tie!")
+                }
             }
             setSquare(nextSqr)
             setNextTurn(!isXTurn)
