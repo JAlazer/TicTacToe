@@ -101,12 +101,12 @@ export default function winCheck(board, i) {
 
     
     // checking for a tie
-    let i = 0;
-    while (board[i]) {
-        if (i === board.length - 1) {
-            return "T"
+    let j = 0;
+    while (board[j]) {
+        if (j === board.length - 1) {
+            return "T";
         }
-        i++;
+        j++;
     }
 
     return null;
