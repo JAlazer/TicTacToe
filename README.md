@@ -85,5 +85,9 @@ The next thing to check for, is whether there has been a tie or not, which can s
 
 ## Finishing Touches
 
-Now, currently there is no message being displayed about who won or if there was tie! So, a new *state* will keep track of the *winCheck* result! This state is *endGame*. This *state* will be updated upon the checking of the win condition of course! Then there will be a quick arrow function assigned to a constant *winMessage* which will return the appropriate win message. Finally, the *return* statement is updated to have the *winMessage* displayed!
+Now, currently there is no message being displayed about who won or if there was tie! So, a new *state* will keep track of the *winCheck* result! This state is *endGame*. This *state* will be updated upon the checking of the win condition of course! Then there will be a quick arrow function assigned to a constant *winMessage* which will return the appropriate win message. Finally, the *return* statement is updated to have the *winMessage* displayed!  
 
+If you read all the way through this messy README, YOU ARE THE BEST. I hope this was somehow helpful to you, if not, then idk maybe my pain in trial and error gave you some amusement. Either way, thank you for sticking through to the end! Obviously there is much more that I could add to this Tic Tac Toe game, however, the point of this project was to just get me into the basics of React (and a little bit of Jest), so that I can get to the more important things in life!  
+
+Stay awesome!
+Johan out!!
