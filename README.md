@@ -83,4 +83,7 @@ The next thing to check for, is whether there has been a tie or not, which can s
 
 > **Sidenote:** SETTING UP UNIT TESTS WITH JEST HURT MY EYES! I thought, that since I was making *winCheck* function, I may as well get some practice with test driven development with some popular test frameworks, soooo I looked into [*Jest*](https://jestjs.io/). With its promise of working straight "out the box" I made the assumption, that this would be a quick an easy process to learn. However, it turns out I did not have the proper configurations for *Jest* to deal with ESM Javascript... how lovely! So anyways, I [dove deep into configuration of *Jest* with EMS](https://jestjs.io/docs/ecmascript-modules), and realized that not too many changes had to be made!  
 
+## Finishing Touches
+
+Now, currently there is no message being displayed about who won or if there was tie! So, a new *state* will keep track of the *winCheck* result! This state is *endGame*. This *state* will be updated upon the checking of the win condition of course! Then there will be a quick arrow function assigned to a constant *winMessage* which will return the appropriate win message. Finally, the *return* statement is updated to have the *winMessage* displayed!
 

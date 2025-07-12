@@ -7,6 +7,7 @@ export default function Board() {
     const [squares, setSquare] = useState(Array(9).fill(null)) 
     const [isXTurn, setNextTurn] = useState(true) // turn logic state
     const [isGameOver, setGame] = useState(false) 
+    const [endGame, setEnd] = useState("")
     
     // purpose: update the representation of the board from clicking on a Square
     function handleClick(i) {
@@ -31,6 +32,7 @@ export default function Board() {
             if(winRes) {
                 setSquare(nextSqr)
                 setGame(true)
+                setEnd(winRes)
                 if (winRes !== "T") {
                     return console.log("The games up, player: " + winCheck(nextSqr, i))
                 } else {
@@ -44,8 +46,23 @@ export default function Board() {
         }
     }
 
+    const winMessageFunc = () => {
+        if (endGame === "X") {
+            return "Player X wins!"
+        } else if (endGame === "O") {
+            return "Player O wins!"
+        } else if (endGame === "T") {
+            return "The game has ended in a tie!"
+        }
+    }
+
+    const winMessage = winMessageFunc()
+
     return(
     <>
+        <div className="board-message">
+            <h2>{winMessage}</h2>
+        </div>
         <div className='board-row'>
             <Square val={squares[0]} onSquareClick={() => handleClick(0)}/>
             <Square val={squares[1]} onSquareClick={() => handleClick(1)}/>

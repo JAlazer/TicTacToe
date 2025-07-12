@@ -6,6 +6,7 @@ import Board from './components/Board.jsx'
 function App() {
   return (
     <>
+      <img src={reactLogo} alt="React logo" className='logo'/>
       <h1>Tic Tac Toes!</h1>
       <Board />
     </>
