@@ -89,5 +89,5 @@ Now, currently there is no message being displayed about who won or if there was
 
 If you read all the way through this messy README, YOU ARE THE BEST. I hope this was somehow helpful to you, if not, then idk maybe my pain in trial and error gave you some amusement. Either way, thank you for sticking through to the end! Obviously there is much more that I could add to this Tic Tac Toe game, however, the point of this project was to just get me into the basics of React (and a little bit of Jest), so that I can get to the more important things in life!  
 
-Stay awesome!
+Stay awesome!  
 Johan out!!
