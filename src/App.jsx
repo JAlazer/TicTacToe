@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <img src={reactLogo} alt="React logo" className='logo'/>
-      <h1>Tic Tac Toes!</h1>
+      <h1>Tic Tac Toe!</h1>
       <Board />
     </>
   )
